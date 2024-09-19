@@ -1,5 +1,8 @@
 # Functions
 import numpy as np
+import numpy as np
+import re
+import json
 
 
 def merge_values(row, arg1, *args):
