@@ -27,8 +27,8 @@
             "SURFING",
             "FISHING",
             "DIVING",
-            "PASSIVE",
-            "BOATING"
+            "BOATING",
+            "PASSIVE"
         ]
     },
     "severity": {
@@ -47,7 +47,8 @@
             "AFTERNOON",
             "DAWN",
             "NIGHT",
-            "DUSK"
+            "DUSK",
+            "UNKNOWN"
         ]
     },
     "species": {
@@ -91,14 +92,16 @@
             "SPINNER SHARK",
             "SANDBAR SHARK",
             "GREY SHARK",
-            "SALMON SHARK"
+            "SALMON SHARK",
+            "MYSTERY SHARK"
         ]
     },
     "sex": {
         "dtype": "category",
         "categories": [
             "MALE",
-            "FEMALE"
+            "FEMALE",
+            "UNKNOWN"
         ]
     }
 }
