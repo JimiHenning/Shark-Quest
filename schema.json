@@ -17,6 +17,9 @@
     "state": {
         "dtype": "string"
     },
+    "name": {
+        "dtype": "string"
+    },
     "location": {
         "dtype": "string"
     },
