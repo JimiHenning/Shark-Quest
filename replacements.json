@@ -23,7 +23,7 @@
             "SURFING"
         ],
         [
-            "^.*?([Dd]iving|[Ss]cuba|[Ss]norkel|[Sp]ear|[Ww]reck).*$",
+            "^.*?([Dd]iving|[Ss]cuba|[Ss]norkel|[Ss]pear|[Ww]reck).*$",
             "DIVING"
         ],
         [
@@ -85,7 +85,7 @@
             "FATALITY"
         ],
         [
-            "^.*(^[Ii]nju|[Bb]it|[Ss]urvived|[Ll]acer|[Mm]inor|[Ii]njured|[Aa]bra|[Pp]unct|[Mm]ultiple|[Ss]cratches|[Rr]iped|[Gg]ash).*$",
+            "^.*(^[Ii]nju|(?<![Nn]o )injur[yi]|[Bb]it|[Ss]uperficial|[Ss]urvived|[Ll]acer|[Mm]inor|[Ss]ever|[Aa]mput|[Ii]njured|[Aa]bra|[Pp]unct|[Mm]ultiple|[Ss]cratch|[Rr]ip|[Gg]ash|[Cc]ut|[Ll]ost|[Ss]truck|[Hh]and|[Ll]eg|[Ff]oot|[Tt]high|[Cc]alf|[Ff]inger|[Tt]orso|[Aa]rm|[Kk]nee|[Ss]hins|[Ww]ound|[Ff]ace|[Ss]lash|[Bb]ruise).*$",
             "INJURY"
         ]
     ],
@@ -257,12 +257,6 @@
         [
             "F",
             "FEMALE"
-        ]
-    ],
-    "name": [
-        [
-            "^M",
-            "MALE"
         ]
     ]
 }
