@@ -52,7 +52,7 @@ def replace_string_patterns(value, replacements):
         return value
 
 
-def json_to_dict(json_filename):
+def dictionnary_from_json(json_filename):
     with open(json_filename+".json", "r") as json_file:
         data = json.load(json_file)
     return data
