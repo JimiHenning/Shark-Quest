@@ -1,0 +1,53 @@
+{
+    "type": {
+        "dtype": "category",
+        "categories": [
+            "PROVOKED",
+            "UNPROVOKED",
+            "WATERCRAFT",
+            "INVALID"
+        ]
+    },
+    "date": {
+        "dtype": "datetime64[ns]"
+    },
+    "country": {
+        "dtype": "string"
+    },
+    "state": {
+        "dtype": "string"
+    },
+    "location": {
+        "dtype": "string"
+    },
+    "activity": {
+        "dtype": "category",
+        "categories": [
+            "SWIMMING",
+            "SURFING",
+            "FISHING",
+            "DIVING",
+            "PASSIVE",
+            "BOATING"
+        ]
+    },
+    "severity": {
+        "dtype": "category",
+        "categories": [
+            "FATALITY",
+            "INJURY",
+            "OTHER"
+        ]
+    },
+    "time": {
+        "dtype": "category",
+        "categories": [
+            "MORNING",
+            "NOON",
+            "AFTERNOON",
+            "DANW",
+            "NIGHT",
+            "DUSK"
+        ]
+    }
+}
