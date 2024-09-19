@@ -113,7 +113,7 @@
             "BLACKTIP SHARK"
         ],
         [
-            "^.*([Ww]hite).*$",
+            "^.*([Ww]hi).*$",
             "GREAT WHITE SHARK"
         ],
         [
@@ -141,7 +141,7 @@
             "HAMMERHEAD SHARK"
         ],
         [
-            "^.*([Zz]ambezi).*$",
+            "^.*([Zz]ambe).*$",
             "ZAMBEZI SHARK"
         ],
         [
@@ -189,8 +189,64 @@
             "SHOVELNOSE SHARK"
         ],
         [
-            "^.*([Ss]evengill).*$",
+            "^.*(gill).*$",
             "SEVENGILL SHARK"
+        ],
+        [
+            "^.*([Cc]ookiecutter).*$",
+            "COOKIECUTTER SHARK"
+        ],
+        [
+            "^.*([Cc]arpet).*$",
+            "CARPET SHARK"
+        ],
+        [
+            "^.*([Bb]onita).*$",
+            "BONITA SHARK"
+        ],
+        [
+            "^.*([Cc]ow).*$",
+            "COW SHARK"
+        ],
+        [
+            "^.*([Bb]roadnose).*$",
+            "BROADNOSE SHARK"
+        ],
+        [
+            "^.*([Dd]usky).*$",
+            "DUSKY SHARK"
+        ],
+        [
+            "^.*([Gg]alapa).*$",
+            "GALAPAGOS SHARK"
+        ],
+        [
+            "^.*([Ee]paulette).*$",
+            "EPAULETTE SHARK"
+        ],
+        [
+            "^.*([Ll]eopard).*$",
+            "LEOPARD SHARK"
+        ],
+        [
+            "^.*([Cc]opper).*$",
+            "COPPER SHARK"
+        ],
+        [
+            "^.*([Ss]pinner).*$",
+            "SPINNER SHARK"
+        ],
+        [
+            "^.*([Ss]and).*$",
+            "SANDBAR SHARK"
+        ],
+        [
+            "^.*([Gg]r[ea]y).*$",
+            "GREY SHARK"
+        ],
+        [
+            "^.*([Ss]alm).*$",
+            "SALMON SHARK"
         ]
     ],
     "sex": [
