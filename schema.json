@@ -45,9 +45,46 @@
             "MORNING",
             "NOON",
             "AFTERNOON",
-            "DANW",
+            "DAWN",
             "NIGHT",
             "DUSK"
+        ]
+    },
+    "species": {
+        "dtype": "category",
+        "categories": [
+            "TIGER SHARK",
+            "GREAT WHITE SHARK",
+            "BULL SHARK",
+            "RAGGEDTOOTH SHARK",
+            "BLACKTIP SHARK",
+            "BLUE SHARK",
+            "NURSE SHARK",
+            "MAKO SHARK",
+            "LEMON SHARK",
+            "SANDTIGER SHARK",
+            "HAMMERHEAD SHARK",
+            "ZAMBEZI SHARK",
+            "THRESHER SHARK",
+            "SILKY SHARK",
+            "REEF SHARK",
+            "NURSE SHARK",
+            "WHITETIP SHARK",
+            "BASKING SHARK",
+            "PORBEAGLE SHARK",
+            "ANGEL SHARK",
+            "GOBLIN SHARK",
+            "WHALER SHARK",
+            "WOBBEGONG SHARK",
+            "SHOVELNOSE SHARK",
+            "SEVENGILL SHARK"
+        ]
+    },
+    "sex": {
+        "dtype": "category",
+        "categories": [
+            "MALE",
+            "FEMALE"
         ]
     }
 }

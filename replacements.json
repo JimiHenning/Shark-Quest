@@ -94,5 +94,113 @@
             "^.*([Fa]tal|FATAL|[Kk]illed).*$",
             "FATALITY"
         ]
+    ],
+    "species": [
+        [
+            "^.*([Tt]iger).*$",
+            "TIGER SHARK"
+        ],
+        [
+            "^.*([Bb]ull).*$",
+            "BULL SHARK"
+        ],
+        [
+            "^.*([Rr]agged).*$",
+            "RAGGEDTOOTH SHARK"
+        ],
+        [
+            "^.*([Bb]lack).*$",
+            "BLACKTIP SHARK"
+        ],
+        [
+            "^.*([Ww]hite).*$",
+            "GREAT WHITE SHARK"
+        ],
+        [
+            "^.*([Bb]lue).*$",
+            "BLUE SHARK"
+        ],
+        [
+            "^.*([Nn]urse).*$",
+            "NURSE SHARK"
+        ],
+        [
+            "^.*([Mm]ako).*$",
+            "MAKO SHARK"
+        ],
+        [
+            "^.*([Ll]emon).*$",
+            "LEMON SHARK"
+        ],
+        [
+            "^.*([Ss]andtiger).*$",
+            "SANDTIGER SHARK"
+        ],
+        [
+            "^.*([Hh]ammerhead).*$",
+            "HAMMERHEAD SHARK"
+        ],
+        [
+            "^.*([Zz]ambezi).*$",
+            "ZAMBEZI SHARK"
+        ],
+        [
+            "^.*([Tt]hresher).*$",
+            "THRESHER SHARK"
+        ],
+        [
+            "^.*([Ss]ilky).*$",
+            "SILKY SHARK"
+        ],
+        [
+            "^.*([Rr]eef).*$",
+            "REEF SHARK"
+        ],
+        [
+            "^.*([Ww]hitetip).*$",
+            "WHITETIP SHARK"
+        ],
+        [
+            "^.*([Bb]asking).*$",
+            "BASKING SHARK"
+        ],
+        [
+            "^.*([Pp]orbeagle).*$",
+            "PORBEAGLE SHARK"
+        ],
+        [
+            "^.*([Aa]ngel).*$",
+            "ANGEL SHARK"
+        ],
+        [
+            "^.*([Gg]oblin).*$",
+            "GOBLIN SHARK"
+        ],
+        [
+            "^.*([Ww]haler).*$",
+            "WHALER SHARK"
+        ],
+        [
+            "^.*([Ww]obbegong).*$",
+            "WOBBEGONG SHARK"
+        ],
+        [
+            "^.*([Ss]hovelnose).*$",
+            "SHOVELNOSE SHARK"
+        ],
+        [
+            "^.*([Ss]evengill).*$",
+            "SEVENGILL SHARK"
+        ]
+    ],
+    "sex": [
+        [
+            "^M",
+            "MALE"
+        ],
+        [
+            "F",
+            "FEMALE"
+        ]
     ]
 }
