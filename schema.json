@@ -7,6 +7,7 @@
             "WATERCRAFT",
             "INVALID"
         ],
+        "default_category": "INVALID",
         "existing_column": "Type",
         "text_case": "upper"
     },
@@ -24,6 +25,7 @@
         "dtype": "category",
         "existing_column": "Country",
         "categories": "countries",
+        "default_category": "UNKNOWN",
         "text_case": "upper"
     },
     "state": {
@@ -46,6 +48,7 @@
             "BOATING",
             "PASSIVE"
         ],
+        "default_category": "PASSIVE",
         "existing_column": "Activity",
         "text_case": "upper"
     },
@@ -56,6 +59,7 @@
             "INJURY",
             "OTHER"
         ],
+        "default_category": "OTHER",
         "existing_column": "Injury",
         "text_case": "upper"
     },
@@ -70,6 +74,7 @@
             "DUSK",
             "UNKNOWN"
         ],
+        "default_category": "UNKNOWN",
         "existing_column": "Time",
         "text_case": "upper"
     },
@@ -117,6 +122,7 @@
             "SALMON SHARK",
             "MYSTERY SHARK"
         ],
+        "default_category": "MYSTERY SHARK",
         "existing_column": "Species ",
         "text_case": "upper"
     },
@@ -127,6 +133,7 @@
             "FEMALE",
             "UNKNOWN"
         ],
+        "default_category": "UNKNOWN",
         "existing_column": "Sex",
         "text_case": "upper"
     }
