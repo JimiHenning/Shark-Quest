@@ -8,8 +8,8 @@ This project analyzes global shark attack data to uncover patterns and insights 
 
 ### Dataset
 
-- **Shark Attack Data**: Loaded from containing detailed records of shark attacks worldwide.
-- **Country Coordinates**: Loaded from used for geographical analysis and mapping.
+- **Shark Attack Data**: Containing detailed records of shark attacks worldwide.
+- **Country Coordinates**: Used for geographical analysis and mapping.
 
 ### Data Cleaning and Preprocessing
 
