@@ -79,6 +79,17 @@ def replace_string_patterns(value, replacements):
 
 
 def rename_columns(df, schema):
+    """
+    Renames columns in a DataFrame based on a given schema.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame whose columns are to be renamed.
+    schema (dict): A dictionary where keys are the new column names and values are dictionaries 
+                   containing the key 'existing_column' which maps to the current column name in the DataFrame.
+
+    Returns:
+    pandas.DataFrame: The DataFrame with renamed columns.
+    """
 
     for new_name, parameters in schema.items():
         old_name = parameters.get('existing_column')
@@ -91,6 +102,19 @@ def rename_columns(df, schema):
 
 
 def add_columns(df, schema):
+    """
+    Adds columns to a DataFrame based on a given schema.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame to which columns will be added.
+    schema (dict): A dictionary where keys are column names and values are dictionaries 
+                   containing column parameters, such as 'dtype'.
+
+    The function checks if each column specified in the schema is present in the DataFrame.
+    If a column is not present, it adds the column to the DataFrame with a default value 
+    based on the 'dtype' parameter in the schema. If 'dtype' is 'int64', the default value 
+    is 999; otherwise, the default value is NaN.
+    """
     for name, parameters in schema.items():
         if name not in df.columns:
             if parameters.get('dtype') == 'int64':
@@ -100,6 +124,16 @@ def add_columns(df, schema):
 
 
 def drop_columns(df, schema):
+    """
+    Drops columns from a DataFrame that are not present in the given schema.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame from which columns will be dropped.
+    schema (list): A list of column names that should be retained in the DataFrame.
+
+    Returns:
+    pandas.DataFrame: The DataFrame with only the columns specified in the schema.
+    """
 
     for column in df.columns:
         if column not in schema:
@@ -109,6 +143,19 @@ def drop_columns(df, schema):
 
 
 def remove_duplicates(df, schema):
+    """
+    Remove duplicate rows from a DataFrame based on specified columns.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame from which duplicates will be removed.
+    schema (dict): A dictionary where keys are column names and values are dictionaries 
+                   containing parameters. If 'duplicate_pairs' is present in the parameters, 
+                   it should be a list of columns to consider for identifying duplicates 
+                   along with the key column.
+
+    Returns:
+    pandas.DataFrame: The DataFrame with duplicates removed based on the specified columns.
+    """
 
     for column, parameters in schema.items():
         if parameters.get('duplicate_pairs'):
@@ -119,9 +166,18 @@ def remove_duplicates(df, schema):
 
 
 def reformat_values(df, replacements):
+    """
+    Reformat values in a DataFrame based on a replacements dictionary.
 
+    Parameters:
+    df (pandas.DataFrame): The DataFrame in which values will be reformatted.
+    replacements (dict): A dictionary where keys are column names and values are dictionaries 
+                         mapping old values to new values.
+
+    Returns:
+    pandas.DataFrame: The DataFrame with reformatted values.
+    """
     for col, values in replacements.items():
-
         df.loc[:, col] = df[col].apply(
             replace_string_patterns, replacements=values)
 
@@ -129,6 +185,18 @@ def reformat_values(df, replacements):
 
 
 def clean_dates(df, schema):
+    """
+    Clean and format date columns in a DataFrame based on a schema.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame containing date columns to be cleaned.
+    schema (dict): A dictionary where keys are column names and values are dictionaries 
+                   containing parameters. If 'dtype' is 'datetime64[ns]', the column will 
+                   be converted to datetime, formatted, and forward-filled.
+
+    Returns:
+    pandas.DataFrame: The DataFrame with cleaned and formatted date columns.
+    """
     for column, parameters in schema.items():
         if parameters['dtype'] == 'datetime64[ns]':
             df[column] = pd.to_datetime(
@@ -139,9 +207,21 @@ def clean_dates(df, schema):
 
 
 def validate_categories(df, schema: dict, sources: dict):
+    """
+    Validate and clean categorical columns in a DataFrame based on a schema and sources.
 
+    Parameters:
+    df (pandas.DataFrame): The DataFrame containing categorical columns to be validated.
+    schema (dict): A dictionary where keys are column names and values are dictionaries 
+                   containing parameters. If 'categories' is present, it should be a list 
+                   of valid categories or a key to load valid categories from sources.
+    sources (dict): A dictionary where keys are source names and values are data sources 
+                    to load valid categories from.
+
+    Returns:
+    pandas.DataFrame: The DataFrame with validated and cleaned categorical columns.
+    """
     for column in df.select_dtypes(include=['category']).columns:
-
         valid_categories = schema[column]['categories']
         default_category = schema[column].get('default_category', np.nan)
 
@@ -160,6 +240,18 @@ def validate_categories(df, schema: dict, sources: dict):
 
 
 def convert_text_case(df, schema):
+    """
+    Convert the text case of string columns in a DataFrame based on a schema.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame containing string columns to be converted.
+    schema (dict): A dictionary where keys are column names and values are dictionaries 
+                   containing parameters. If 'text_case' is present, it should be one of 
+                   'upper', 'lower', or 'title' to convert the text case accordingly.
+
+    Returns:
+    pandas.DataFrame: The DataFrame with converted text case in specified columns.
+    """
     for column in df.columns:
         if column in schema and 'text_case' in schema[column]:
             if schema[column]['text_case'] == 'upper':
