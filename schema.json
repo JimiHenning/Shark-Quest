@@ -6,19 +6,24 @@
             "UNPROVOKED",
             "WATERCRAFT",
             "INVALID"
-        ]
+        ],
+        "existing_column": "Type"
     },
     "date": {
-        "dtype": "datetime64[ns]"
+        "dtype": "datetime64[ns]",
+        "existing_column": "Date"
     },
     "country": {
-        "dtype": "string"
+        "dtype": "string",
+        "existing_column": "Country"
     },
     "state": {
-        "dtype": "string"
+        "dtype": "string",
+        "existing_column": "State"
     },
     "location": {
-        "dtype": "string"
+        "dtype": "string",
+        "existing_column": "Location"
     },
     "activity": {
         "dtype": "category",
@@ -29,7 +34,8 @@
             "DIVING",
             "BOATING",
             "PASSIVE"
-        ]
+        ],
+        "existing_column": "Activity"
     },
     "severity": {
         "dtype": "category",
@@ -49,7 +55,8 @@
             "NIGHT",
             "DUSK",
             "UNKNOWN"
-        ]
+        ],
+        "existing_column": "Time"
     },
     "species": {
         "dtype": "category",
@@ -94,7 +101,8 @@
             "GREY SHARK",
             "SALMON SHARK",
             "MYSTERY SHARK"
-        ]
+        ],
+        "existing_column": "Species "
     },
     "sex": {
         "dtype": "category",
@@ -102,6 +110,7 @@
             "MALE",
             "FEMALE",
             "UNKNOWN"
-        ]
+        ],
+        "existing_column": "Sex"
     }
 }
