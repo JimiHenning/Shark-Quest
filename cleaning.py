@@ -4,41 +4,6 @@ import numpy as np
 import pandas as pd
 
 
-""" def merge_values(row, arg1, *args):
-    if row in args:
-        return arg1
-    else:
-        return row
-
-
-def strip_values(df):
-    for col in df.columns:
-        df[col] = df[col].apply(
-            lambda x: x.strip() if isinstance(x, str) else x)
-    return df
-
-
-def replace_to_nan(series, keys, value=np.nan):
-
-
-    return series.replace(keys, value, inplace=True)
-
-
-def categorize_activity(activity):
-    if pd.isna(activity):
-        return "Invalid"
-
-    activity = activity.lower()
-
-    for pattern, label in categories:
-        if re.search(pattern, activity):
-            return label
-
-    return "Other Activity" """
-
-
-# Valid functions :
-
 def load_data(filename):
     """
     Load data from an Excel or CSV file.
@@ -74,7 +39,7 @@ def get_json(json_filename):
         json.JSONDecodeError: If the file is not a valid JSON.
     """
     try:
-        with open(json_filename + ".json", "r") as json_file:
+        with open(json_filename + ".json", "r", encoding="utf-8") as json_file:
             data = json.load(json_file)
         return data
     except FileNotFoundError:
@@ -170,4 +135,37 @@ def clean_dates(df, schema):
                 df[column], errors='coerce')  # Drops unsavable mess
             df[column] = df[column].dt.strftime('%d-%m-%Y')
             df[column] = df[column].ffill()  # Fills forward to avoid time gaps
+    return df
+
+
+def validate_categories(df, schema: dict, sources: dict):
+
+    for column in df.select_dtypes(include=['category']).columns:
+
+        valid_categories = schema[column]['categories']
+        default_category = schema[column].get('default_category', np.nan)
+
+        if isinstance(valid_categories, str):
+            valid_categories = load_data(
+                sources[valid_categories]).iloc[:, 0].tolist() + [default_category]
+
+        df[column] = df[column].astype('string')
+        df[column] = pd.Categorical(
+            df[column], categories=set(valid_categories), ordered=True)
+        df[column] = df[column].where(df[column].isin(
+            valid_categories), other=default_category)
+
+        df[column] = df[column].astype('category')
+    return df
+
+
+def convert_text_case(df, schema):
+    for column in df.columns:
+        if column in schema and 'text_case' in schema[column]:
+            if schema[column]['text_case'] == 'upper':
+                df[column] = df[column].str.upper()
+            elif schema[column]['text_case'] == 'lower':
+                df[column] = df[column].str.lower()
+            elif schema[column]['text_case'] == 'title':
+                df[column] = df[column].str.title()
     return df
