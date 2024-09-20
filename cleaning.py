@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 
-def merge_values(row, arg1, *args):
+""" def merge_values(row, arg1, *args):
     if row in args:
         return arg1
     else:
@@ -19,11 +19,7 @@ def strip_values(df):
 
 
 def replace_to_nan(series, keys, value=np.nan):
-    """
-    input series as dataframe['Column']
-    input keys as a list of all the keys to replace
-    input value as the replacer value for the keys, default is NaN
-    """
+
 
     return series.replace(keys, value, inplace=True)
 
@@ -38,7 +34,7 @@ def categorize_activity(activity):
         if re.search(pattern, activity):
             return label
 
-    return "Other Activity"
+    return "Other Activity" """
 
 
 # Valid functions :
@@ -130,10 +126,12 @@ def rename_columns(df, schema):
 
 
 def add_columns(df, schema):
-
-    for name in schema:
+    for name, parameters in schema.items():
         if name not in df.columns:
-            df[name] = np.nan
+            if parameters.get('dtype') == 'int64':
+                df[name] = 999
+            else:
+                df[name] = np.nan
 
 
 def drop_columns(df, schema):
@@ -183,7 +181,8 @@ def validate_categories(df, schema: dict, sources: dict):
         default_category = schema[column].get('default_category', np.nan)
 
         if isinstance(valid_categories, str):
-            valid_categories = load_data(sources[valid_categories])
+            valid_categories = load_data(
+                sources[valid_categories]).iloc[:, 0].tolist() + [default_category]
 
         df[column] = df[column].astype('string')
 

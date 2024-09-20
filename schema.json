@@ -63,6 +63,9 @@
         "existing_column": "Injury",
         "text_case": "upper"
     },
+    "severity_score": {
+        "dtype": "int64"
+    },
     "time": {
         "dtype": "category",
         "categories": [
