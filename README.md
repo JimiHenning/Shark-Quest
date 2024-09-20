@@ -2,53 +2,46 @@
 
 ## New Kids On The Block
 
-### Project Overview
+### Overview
 
-This project analyzes global shark attack data to uncover patterns and insights using data cleaning, preprocessing, and exploratory data analysis.
+**SHARK QUEST** is a data analysis project aimed at exploring patterns and insights in historical shark attack incidents worldwide. By cleaning and analyzing the dataset, we aim to answer specific hypotheses related to the timing, severity, and circumstances of shark attacks.
 
-### Dataset
+### Data Cleaning Steps
 
-- **Shark Attack Data**: Containing detailed records of shark attacks worldwide.
-- **Country Coordinates**: Used for geographical analysis and mapping.
+- **Column Renaming**: Aligned all column names with the predefined data schema.
+- **Adding/Dropping Columns**: Added necessary columns and removed irrelevant ones based on the schema.
+- **String Manipulation**: Stripped whitespace and standardized text cases.
+- **Handling Missing Values**: Replaced placeholders like 'N/A', 'null' with `NaN`.
+- **Removing Duplicates**: Eliminated duplicate records.
+- **Data Type Casting**: Converted columns to appropriate data types as specified in the schema.
+- **Date Cleaning**: Standardized date formats for consistency.
+- **Category Validation**: Ensured all categorical data matched expected values.
+- **Value Replacement**: Applied specific replacements from a JSON configuration to standardize entries.
 
-### Data Cleaning and Preprocessing
+### Analysis and Findings
 
-1. **Column Formatting**: Standardized column names by:
-   - Stripping leading and trailing whitespaces.
-   - Replacing spaces with underscores.
-   - Removing periods.
-   - Converting all names to lowercase.
+#### Hypothesis 1: Shark attacks are more concentrated in the PM
 
-2. **Schema Enforcement**: Applied a data schema from `schema.json` to ensure consistent data types and categories across the dataset.
+- **Approach**: Analyzed the distribution of shark attacks across different times of the day.
+- **Findings**: Contrary to the hypothesis, the data revealed that shark attacks are most concentrated around noon.
+- **Visualization**: Created a bar plot showing the number of attacks by time category.
 
-3. **New Columns**: Created a `severity` column based on the `Injury` field to categorize the severity of each shark attack.
+#### Hypothesis 2: Some shark species are more dangerous than others
 
-4. **Column Selection**: Selected relevant columns as specified in the data schema for further analysis.
+- **Approach**: Assigned a severity score to each attack and grouped the data by shark species.
+- **Findings**:
+  - Identified the top six most dangerous shark species based on the highest percentage of fatal attacks.
+  - Also identified the "friendliest" shark species with the highest percentage of non-injury incidents and a fatality rate below 5%.
+- **Visualization**: Generated bar plots to illustrate the most dangerous and friendliest shark species.
 
-5. **String Stripping**: Removed leading and trailing whitespaces from all string-type columns to standardize the data.
+#### Hypothesis 3: Some countries have a higher provoked to total attack ratio
 
-6. **Handling Missing Values**: Replaced placeholder strings like `'N/A'`, `'null'`, and `'--'` with `NaN` to handle missing values.
+- **Approach**: Compared the number of provoked attacks to unprovoked attacks by country, both over all time and within the last 50 years.
+- **Findings**: Certain countries exhibit a higher ratio of provoked attacks, indicating regional differences in human-shark interactions.
+- **Visualization**: Plotted the provoked vs. unprovoked attack ratios for the top countries.
 
-7. **Duplicate Removal**: Dropped duplicate records.
+#### Hypothesis 4: Provoked attacks have higher severity than unprovoked attacks
 
-8. **Index Reset**: Reset the DataFrame index after dropping duplicates for proper alignment.
-
-9. **Value Reformatting**: Used `replacements.json` to replace specific string patterns in data fields for standardization.
-
-10. **Country Name Unification**:
-    - Converted all country names to lowercase.
-    - Mapped variations of country names to a standardized form.
-    - Used a list of valid countries from `countries_df` to filter and retain only recognized country names.
-
-11. **Date Cleaning**:
-    - Converted the `date` column to datetime objects, coercing invalid entries.
-    - Formatted dates as `DD-MM-YYYY`.
-    - Forward-filled missing dates to prevent gaps in the timeline.
-
-12. **Data Type Casting**: Converted columns to appropriate data types as defined in the data schema, ensuring consistency.
-
-13. **Category Cleaning**:
-    - Converted categorical columns to string type.
-    - Assigned categories based on the data schema.
-
-14. **Clean Data Copy**: Created a clean DataFrame `shark_attacks_clean` for analysis, preserving the original data.
+- **Approach**: Analyzed the severity distribution between provoked and unprovoked attacks.
+- **Findings**: The data did not support the hypothesis; provoked attacks did not have a higher severity compared to unprovoked attacks.
+- **Visualization**: Used a categorical plot to compare the severity percentages between attack types.
