@@ -171,27 +171,3 @@ def clean_dates(df, schema):
             df[column] = df[column].dt.strftime('%d-%m-%Y')
             df[column] = df[column].ffill()  # Fills forward to avoid time gaps
     return df
-
-
-def validate_categories(df, schema: dict, sources: dict):
-
-    for column in df.select_dtypes(include=['category']).columns:
-
-        valid_categories = schema[column]['categories']
-        default_category = schema[column].get('default_category', np.nan)
-
-        if isinstance(valid_categories, str):
-            valid_categories = load_data(
-                sources[valid_categories]).iloc[:, 0].tolist() + [default_category]
-
-        df[column] = df[column].astype('string')
-
-        df[column] = pd.Categorical(
-            df[column], categories=set(valid_categories), ordered=True)
-
-        df[column] = df[column].where(df[column].isin(
-            valid_categories), other=default_category)
-
-        df[column] = df[column].astype('category')
-
-    return df

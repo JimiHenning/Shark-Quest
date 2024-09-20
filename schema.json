@@ -26,7 +26,7 @@
         "existing_column": "Country",
         "categories": "countries",
         "default_category": "UNKNOWN",
-        "text_case": "upper"
+        "text_case": "lower"
     },
     "state": {
         "dtype": "string",
