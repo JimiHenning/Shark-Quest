@@ -115,3 +115,80 @@ def replace_string_patterns(value, replacements):
     except Exception as e:
         print(f"Unexpected error: {e}")
         raise
+
+
+def rename_columns(df, schema):
+
+    for new_name, parameters in schema.items():
+        old_name = parameters.get('existing_column')
+
+        if old_name in df.columns:
+
+            df = df.rename(columns={old_name: new_name})
+
+    return df
+
+
+def add_columns(df, schema):
+
+    for name in schema:
+        if name not in df.columns:
+            df[name] = np.nan
+
+
+def drop_columns(df, schema):
+
+    for column in df.columns:
+        if column not in schema:
+            df = df.drop(column, axis=1)
+
+    return df
+
+
+def remove_duplicates(df, schema):
+
+    for column, parameters in schema.items():
+        if parameters.get('duplicate_pairs'):
+            df = df.drop_duplicates(
+                subset=[column]+parameters['duplicate_pairs'])
+
+    return df
+
+
+def reformat_values(df, replacements):
+
+    for col, values in replacements.items():
+
+        df.loc[:, col] = df[col].apply(
+            replace_string_patterns, replacements=values)
+
+    return df
+
+
+def clean_dates(df, schema):
+    for column, parameters in schema.items():
+        if parameters['dtype'] == 'datetime64[ns]':
+            df[column] = pd.to_datetime(
+                df[column], errors='coerce')  # Drops unsavable mess
+            df[column] = df[column].dt.strftime('%d-%m-%Y')
+            df[column] = df[column].ffill()  # Fills forward to avoid time gaps
+    return df
+
+
+def clean_categories(df, schema: dict, sources: dict):
+
+    for column in df.select_dtypes(include=['category']).columns:
+
+        valid_categories = schema[column]['categories']
+
+        if isinstance(schema[column]['categories'], str):
+            valid_categories = load_data(sources[valid_categories])
+
+        df[column] = df[column].astype('string')
+        df[column] = pd.Categorical(df[column], categories=set(
+            schema[column]['categories']), ordered=True)
+        df[column] = df[column].where(df[column].isin(
+            valid_categories), other=schema[column]['categories'][-1])
+        df[column] = df[column].astype('category')
+
+    return df
