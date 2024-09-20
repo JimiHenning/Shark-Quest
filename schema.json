@@ -7,7 +7,8 @@
             "WATERCRAFT",
             "INVALID"
         ],
-        "existing_column": "Type"
+        "existing_column": "Type",
+        "text_case": "upper"
     },
     "date": {
         "dtype": "datetime64[ns]",
@@ -22,15 +23,18 @@
     "country": {
         "dtype": "category",
         "existing_column": "Country",
-        "categories": "countries"
+        "categories": "countries",
+        "text_case": "upper"
     },
     "state": {
         "dtype": "string",
-        "existing_column": "State"
+        "existing_column": "State",
+        "text_case": "title"
     },
     "location": {
         "dtype": "string",
-        "existing_column": "Location"
+        "existing_column": "Location",
+        "text_case": "title"
     },
     "activity": {
         "dtype": "category",
@@ -42,7 +46,8 @@
             "BOATING",
             "PASSIVE"
         ],
-        "existing_column": "Activity"
+        "existing_column": "Activity",
+        "text_case": "upper"
     },
     "severity": {
         "dtype": "category",
@@ -51,7 +56,8 @@
             "INJURY",
             "OTHER"
         ],
-        "existing_column": "Injury"
+        "existing_column": "Injury",
+        "text_case": "upper"
     },
     "time": {
         "dtype": "category",
@@ -64,7 +70,8 @@
             "DUSK",
             "UNKNOWN"
         ],
-        "existing_column": "Time"
+        "existing_column": "Time",
+        "text_case": "upper"
     },
     "species": {
         "dtype": "category",
@@ -110,7 +117,8 @@
             "SALMON SHARK",
             "MYSTERY SHARK"
         ],
-        "existing_column": "Species "
+        "existing_column": "Species ",
+        "text_case": "upper"
     },
     "sex": {
         "dtype": "category",
@@ -119,6 +127,7 @@
             "FEMALE",
             "UNKNOWN"
         ],
-        "existing_column": "Sex"
+        "existing_column": "Sex",
+        "text_case": "upper"
     }
 }
