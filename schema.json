@@ -20,8 +20,9 @@
         ]
     },
     "country": {
-        "dtype": "string",
-        "existing_column": "Country"
+        "dtype": "category",
+        "existing_column": "Country",
+        "categories": "countries"
     },
     "state": {
         "dtype": "string",
