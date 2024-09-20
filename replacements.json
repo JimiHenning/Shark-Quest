@@ -91,8 +91,24 @@
     ],
     "country": [
         [
-            "^.*([Fa]tal|FATAL|[Kk]illed).*$",
-            "FATALITY"
+            "^.*([Ee]ngland|[Ee]NGLAND|[Ss]cotland|[Ss]COTLAND).*$",
+            "UNITED KINGDOM"
+        ],
+        [
+            "^.*([Uu][Ss][Aa]|[Uu][Ss]A|[Hh]awaii|[Hh]AWAII).*$",
+            "UNITED STATES"
+        ],
+        [
+            "^.*([Rr]eunion|[Rr]EUNION).*$",
+            "FRANCE"
+        ],
+        [
+            "^.*([Cc]olumbia|[Cc]OLUMBIA).*$",
+            "COLOMBIA"
+        ],
+        [
+            "^.*([Nn]ew [Gg]uinea|[Nn]EW [Gg]UINEA).*$",
+            "PAPUA NEW GUINEA"
         ]
     ],
     "species": [

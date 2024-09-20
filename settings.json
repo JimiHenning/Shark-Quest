@@ -1,0 +1,6 @@
+{
+    "sources": {
+        "sharks_attacks": "GSAF5.xls",
+        "countries": "country_coord.csv"
+    }
+}
